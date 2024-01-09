@@ -1,7 +1,7 @@
 # EvilURL Checker
 
 ```bash
-evilurl git:(main) ✗ python evilurl.py github.com
+evilurl git:(main) ✗ python evilurl github.com
 
  ██████████ █████   █████ █████ █████          █████  █████ ███████████   █████
 ░░███░░░░░█░░███   ░░███ ░░███ ░░███          ░░███  ░░███ ░░███░░░░░███ ░░███
@@ -43,20 +43,26 @@ The Homograph URL Checker is a Python tool designed to analyze and identify pote
 
 The primary motivation behind this project is to raise awareness about the potential security risks associated with IDN homograph attacks. By identifying visually similar characters, the tool aims to help users and security professionals study and understand the vulnerabilities in domain names, promoting better protection against phishing attempts and other cyber threats.
 
+## Installation
+
+```bash
+pip install evilurl
+```
+
 ## Usage
 
 ### Single Domain Analysis
 To check a single domain, run the tool with the following command:
 
 ```bash
-python evilurl.py <domain>
+python evilurl <domain>
 ```
 
 ### Batch Analysis from File
 To analyze multiple domains from a file, use the following command:
 
 ```bash
-python evilurl.py -f <file_path>
+python evilurl -f <file_path>
 ```
 
 ## Dependencies
@@ -95,12 +101,12 @@ This tool is intended for educational and research purposes only. The author is 
 
 ### Single Domain Analysis
 ```bash
-python evilurl.py example.com
+python evilurl example.com
 ```
 
 ### Batch Analysis from File
 ```bash
-python evilurl.py -f domains.txt
+python evilurl -f domains.txt
 ```
 
 ## License

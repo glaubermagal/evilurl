@@ -86,7 +86,7 @@ class HomographAnalyzer:
             else:
                 print(f"DNS: \033[33m UNSET\033[0m")
 
-if __name__ == "__main__":
+def main():
     unicode_combinations = [
         {
             'latin': 'a',
@@ -196,3 +196,6 @@ if __name__ == "__main__":
             print(f"Error: File {sys.argv[2]} not found.")
     else:
         print("Usage: python evilurl.py <domain> OR python evilurl.py -f <file_path>")
+
+if __name__ == "__main__":
+    main()
