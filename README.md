@@ -1,7 +1,7 @@
 # EvilURL Checker
 
 ```bash
-evilurl git:(main) ✗ python evilurl github.com
+evilurl git:(main) ✗ evilurl github.com
 
  ██████████ █████   █████ █████ █████          █████  █████ ███████████   █████
 ░░███░░░░░█░░███   ░░███ ░░███ ░░███          ░░███  ░░███ ░░███░░░░░███ ░░███
@@ -55,14 +55,14 @@ pip install evilurl
 To check a single domain, run the tool with the following command:
 
 ```bash
-python evilurl <domain>
+evilurl <domain>
 ```
 
 ### Batch Analysis from File
 To analyze multiple domains from a file, use the following command:
 
 ```bash
-python evilurl -f <file_path>
+evilurl -f <file_path>
 ```
 
 ## Dependencies
@@ -101,12 +101,17 @@ This tool is intended for educational and research purposes only. The author is 
 
 ### Single Domain Analysis
 ```bash
-python evilurl example.com
+evilurl example.com
 ```
 
 ### Batch Analysis from File
 ```bash
-python evilurl -f domains.txt
+evilurl -f domains.txt
+```
+
+### Return only the homograph domains
+```bash
+evilurl example.com -d
 ```
 
 ## License
