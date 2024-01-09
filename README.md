@@ -12,7 +12,7 @@ evilurl git:(main) ✗ python evilurl.py github.com
  ██████████    ░░███      █████ ███████████    ░░████████   █████   █████ ███████████
 ░░░░░░░░░░      ░░░      ░░░░░ ░░░░░░░░░░░      ░░░░░░░░   ░░░░░   ░░░░░ ░░░░░░░░░░░
 
-[ by GLAUBERMAGAL - Glauber Magal @glaubermagal ]
+[ by @glaubermagal ]
 
 [*] Domain: github.com
 [*] Homograph characters used: ['ɡ', 'ս']
@@ -33,7 +33,7 @@ punnycode: xn--ithb-z7b398b.com
 DNS:  UNSET
 ```
 
-**Author:** Glauber Magal [@glaubermagal]
+**Author:** @glaubermagal
 
 ## Overview
 
