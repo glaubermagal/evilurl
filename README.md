@@ -1,4 +1,37 @@
-![Homograph URL Checker](screenshot.png)
+# EvilURL Checker
+
+```bash
+evilurl git:(main) ✗ python evilurl.py github.com
+
+██████████ █████   █████ █████ █████          █████  █████ ███████████   █████
+░░███░░░░░█░░███   ░░███ ░░███ ░░███          ░░███  ░░███ ░░███░░░░░███ ░░███
+ ░███  █ ░  ░███    ░███  ░███  ░███           ░███   ░███  ░███    ░███  ░███
+ ░██████    ░███    ░███  ░███  ░███           ░███   ░███  ░██████████   ░███
+ ░███░░█    ░░███   ███   ░███  ░███           ░███   ░███  ░███░░░░░███  ░███
+ ░███ ░   █  ░░░█████░    ░███  ░███      █    ░███   ░███  ░███    ░███  ░███      █
+ ██████████    ░░███      █████ ███████████    ░░████████   █████   █████ ███████████
+░░░░░░░░░░      ░░░      ░░░░░ ░░░░░░░░░░░      ░░░░░░░░   ░░░░░   ░░░░░ ░░░░░░░░░░░
+
+[ by GLAUBERMAGAL - Glauber Magal @glaubermagal ]
+
+[*] Domain: github.com
+[*] Homograph characters used: ['ɡ', 'ս']
+
+1 -------------------------------
+homograph domain: githսb.com
+punnycode: xn--githb-bjg.com
+DNS:  UNSET
+
+2 -------------------------------
+homograph domain: ɡithub.com
+punnycode: xn--ithub-qmc.com
+DNS:  107.180.21.235
+
+3 -------------------------------
+homograph domain: ɡithսb.com
+punnycode: xn--ithb-z7b398b.com
+DNS:  UNSET
+```
 
 **Author:** Glauber Magal [@glaubermagal]
 
