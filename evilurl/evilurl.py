@@ -1,3 +1,61 @@
+"""
+evilurl(1)                  User Manuals                  evilurl(1)
+
+NAME
+       evilurl - Analyze and generate IDN homograph attacks
+
+SYNOPSIS
+       evilurl [OPTIONS] <domain>
+       evilurl -f <file_path>
+
+DESCRIPTION
+       EvilURL is a cybersecurity tool designed to safeguard against IDN 
+       homograph attacks by identifying visually similar domain names.
+
+
+
+OPTIONS
+       -f <file_path>
+              Analyze domains listed in a file.
+
+       -d     Show only the generated homograph domains without additional information.
+
+EXAMPLES
+       evilurl example.com
+       evilurl -f domains.txt
+       evilurl -d example.com
+
+AUTHOR
+       Written by @glaubermagal.
+
+REPORTING BUGS
+       Report bugs to: https://github.com/glaubermagal/evilurl/issues
+
+SEE ALSO
+       More information can be found at: https://github.com/glaubermagal/evilurl
+
+COPYRIGHT
+    Copyright (c) 2024 Glauber
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+"""
+
 import sys
 import socket
 from urllib.parse import urlsplit
@@ -18,8 +76,9 @@ header = """
 """
 
 class HomographAnalyzer:
-    def __init__(self, unicode_combinations):
+    def __init__(self, unicode_combinations, show_domains_only):
         self.unicode_combinations = unicode_combinations
+        self.show_domains_only = show_domains_only
 
     def convert_to_punycode(self, input_string):
         try:
@@ -69,22 +128,27 @@ class HomographAnalyzer:
         if len(domains) <= 1:
             print(f"IDN homograph attack is not possible for this domain")
 
-        print(header)
-        print(f"\033[32m[\033[0m*\033[32m]\033[0m Domain: \033[33m{domain}\033[0m")
-        print(f"\033[32m[\033[0m*\033[32m]\033[0m Homograph characters used: \033[32m{chars}\033[0m")
+        if not self.show_domains_only:
+            print(header)
+            print(f"\033[32m[\033[0m*\033[32m]\033[0m Domain: \033[33m{domain}\033[0m")
+            print(f"\033[32m[\033[0m*\033[32m]\033[0m Homograph characters used: \033[32m{chars}\033[0m")
 
-        for index, new_domain in enumerate(domains[1:]):
-            print(f"\n{index+1} -------------------------------")
+        if self.show_domains_only:
+            for new_domain in domains[1:]:
+                print(new_domain)
+        else:
+            for index, new_domain in enumerate(domains[1:]):
+                print(f"\n{index + 1} -------------------------------")
 
-            dns = self.check_domain_registration(new_domain)
-            punycode_encoded_domain = self.convert_to_punycode(new_domain)
+                dns = self.check_domain_registration(new_domain)
+                punycode_encoded_domain = self.convert_to_punycode(new_domain)
 
-            print(f"homograph domain: {new_domain}")
-            print(f"punycode: {punycode_encoded_domain}")
-            if dns:
-                print(f"DNS: \033[31m {dns}\033[0m")
-            else:
-                print(f"DNS: \033[33m UNSET\033[0m")
+                print(f"homograph domain: {new_domain}")
+                print(f"punycode: {punycode_encoded_domain}")
+                if dns:
+                    print(f"DNS: \033[31m {dns}\033[0m")
+                else:
+                    print(f"DNS: \033[33m UNSET\033[0m")
 
 def main():
     unicode_combinations = [
@@ -182,7 +246,13 @@ def main():
         },
     ]
 
-    homograph_analyzer = HomographAnalyzer(unicode_combinations)
+    show_domains_only = False
+
+    if '-d' in sys.argv:
+        show_domains_only = True
+        sys.argv.remove('-d')
+
+    homograph_analyzer = HomographAnalyzer(unicode_combinations, show_domains_only)
 
     if len(sys.argv) == 2:
         homograph_analyzer.analyze_domain(sys.argv[1])
