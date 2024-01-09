@@ -1,65 +1,8 @@
-"""
-evilurl(1)                  User Manuals                  evilurl(1)
-
-NAME
-       evilurl - Analyze and generate IDN homograph attacks
-
-SYNOPSIS
-       evilurl [OPTIONS] <domain>
-       evilurl -f <file_path>
-
-DESCRIPTION
-       EvilURL is a cybersecurity tool designed to safeguard against IDN 
-       homograph attacks by identifying visually similar domain names.
-
-
-
-OPTIONS
-       -f <file_path>
-              Analyze domains listed in a file.
-
-       -d     Show only the generated homograph domains without additional information.
-
-EXAMPLES
-       evilurl example.com
-       evilurl -f domains.txt
-       evilurl -d example.com
-
-AUTHOR
-       Written by @glaubermagal.
-
-REPORTING BUGS
-       Report bugs to: https://github.com/glaubermagal/evilurl/issues
-
-SEE ALSO
-       More information can be found at: https://github.com/glaubermagal/evilurl
-
-COPYRIGHT
-    Copyright (c) 2024 Glauber
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
-"""
-
-import sys
 import socket
-from urllib.parse import urlsplit
+import sys
 from itertools import product
+from urllib.parse import urlsplit
+
 import idna
 
 header = """
