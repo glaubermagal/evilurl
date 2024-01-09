@@ -1,5 +1,3 @@
-# Homograph URL Checker
-
 ![Homograph URL Checker](screenshot.png)
 
 **Author:** Glauber Magal [@glaubermagal]
