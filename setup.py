@@ -9,7 +9,7 @@ setup(
     setup_requires=['wheel'],
     entry_points={
         'console_scripts': [
-            'evilurl=evilurl.evilurl:main',
+            'evilurl=src.evilurl:main',
         ],
     },
     author='Glauber',
@@ -24,6 +24,6 @@ setup(
         'Operating System :: OS Independent',
     ],
     data_files=[
-        (os.path.join(os.path.expanduser('~'), '.local', 'share', 'man', 'man1'), ['evilurl/evilurl.1']),
+        (os.path.join(os.path.expanduser('~'), '.local', 'share', 'man', 'man1'), ['src/evilurl.1']),
     ],
 )

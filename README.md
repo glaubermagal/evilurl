@@ -33,8 +33,6 @@ punnycode: xn--ithb-z7b398b.com
 DNS:  UNSET
 ```
 
-**Author:** @glaubermagal
-
 ## Overview
 
 The Homograph URL Checker is a Python tool designed to analyze and identify potential Internationalized Domain Name (IDN) homograph attacks. Homograph attacks involve the use of characters that visually resemble each other but have different Unicode representations. This tool checks for variations of Latin characters that may be exploited for phishing or malicious purposes.
