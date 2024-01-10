@@ -19,17 +19,17 @@ evilurl git:(main) ✗ evilurl github.com
 
 1 -------------------------------
 homograph domain: githսb.com
-punnycode: xn--githb-bjg.com
+punycode: xn--githb-bjg.com
 DNS:  UNSET
 
 2 -------------------------------
 homograph domain: ɡithub.com
-punnycode: xn--ithub-qmc.com
+punycode: xn--ithub-qmc.com
 DNS:  107.180.21.235
 
 3 -------------------------------
 homograph domain: ɡithսb.com
-punnycode: xn--ithb-z7b398b.com
+punycode: xn--ithb-z7b398b.com
 DNS:  UNSET
 ```
 
