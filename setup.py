@@ -5,7 +5,7 @@ from setuptools import setup
 setup(
     name='evilurl',
     version='0.0.7',
-    packages=['evilurl'],
+    packages=['src'],
     setup_requires=['wheel'],
     entry_points={
         'console_scripts': [
