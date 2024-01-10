@@ -1,0 +1,134 @@
+[
+    {
+        "latin": "a",
+        "similar": [
+            {
+                "\u0430": "Cyrillic Small Letter A",
+                "\u0251": "Latin Small Letter Alpha"
+            }
+        ]
+    },
+    {
+        "latin": "c",
+        "similar": [
+            {
+                "\u03F2": "Greek Lunate Sigma Symbol"
+            }
+        ]
+    },
+    {
+        "latin": "e",
+        "similar": [
+            {
+                "\u0435": "Cyrillic Small Letter Ye"
+            }
+        ]
+    },
+    {
+        "latin": "o",
+        "similar": [
+            {
+                "\u043E": "Cyrillic Small Letter O",
+                "\u03BF": "Greek small letter Omicron",
+                "\u006F": "Latin small letter O",
+                "\u0585": "Armenian Small Letter Oh"
+            }
+        ]
+    },
+    {
+        "latin": "p",
+        "similar": [
+            {
+                "\u0440": "Cyrillic Small Letter Er"
+            }
+        ]
+    },
+    {
+        "latin": "s",
+        "similar": [
+            {
+                "\u0455": "Cyrillic Small Letter Dze"
+            }
+        ]
+    },
+    {
+        "latin": "i",
+        "similar": [
+            {
+                "\u0456": "Cyrillic small letter I"
+            }
+        ]
+    },
+    {
+        "latin": "d",
+        "similar": [
+            {
+                "\u0501": "Cyrillic Capital Letter Komi Dzje"
+            }
+        ]
+    },
+    {
+        "latin": "l",
+        "similar": [
+            {
+                "\u0269": "Latin Small Letter I With Stroke"
+            }
+        ]
+    },
+    {
+        "latin": "g",
+        "similar": [
+            {
+                "\u0261": "Latin Small Letter Script G"
+            }
+        ]
+    },
+    {
+        "latin": "n",
+        "similar": [
+            {
+                "\u0578": "Armenian Small Letter Vo"
+            }
+        ]
+    },
+    {
+        "latin": "u",
+        "similar": [
+            {
+                "\u057D": "Armenian Small Letter Se"
+            }
+        ]
+    },
+    {
+        "latin": "k",
+        "similar": [
+            {
+                "\u03BA": "Greek small letter Kappa"
+            }
+        ]
+    },
+    {
+        "latin": "h",
+        "similar": [
+            {
+                "\u04BB": "Cyrillic small letter Shha"
+            }
+        ]
+    },
+    {
+        "latin": "x",
+        "similar": [
+            {
+                "\u0445": "Cyrillic small letter Kha"
+            }
+        ]
+    },
+    {
+        "latin": "y",
+        "similar": [
+            {
+                "\u0443": "Cyrillic small letter"
+            }
+        ]
+    }
+]

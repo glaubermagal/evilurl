@@ -1,9 +1,10 @@
+from pathlib import Path
 import socket
 import sys
 from itertools import product
 from urllib.parse import urlsplit
-
 import idna
+import json
 
 header = """
  ██████████ █████   █████ █████ █████          █████  █████ ███████████   █████
@@ -93,122 +94,39 @@ class HomographAnalyzer:
                 else:
                     print(f"DNS: \033[33m UNSET\033[0m")
 
+def load_unicode_combinations_from_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        print(f"Error: File {file_path} not found.")
+        return None
+
 def main():
-    unicode_combinations = [
-        {
-            'latin': 'a',
-            'similar': [
-                {
-                    '\u0430': 'Cyrillic Small Letter A',
-                    '\u0251': 'Latin Small Letter Alpha'
-                }
-            ]
-        },
-        {
-            'latin': 'c',
-            'similar': [
-                {
-                    '\u03F2': 'Greek Lunate Sigma Symbol'
-                }
-            ]
-        },
-        {
-            'latin': 'e',
-            'similar': [
-                {
-                    '\u0435': 'Cyrillic Small Letter Ye'
-                }
-            ]
-        },
-        {
-            'latin': 'o',
-            'similar': [
-                {
-                    '\u043E': 'Cyrillic Small Letter O',
-                    '\u03BF': 'Greek small letter Omicron',
-                    '\u006F': 'Latin small letter O',
-                    '\u0585': 'Armenian Small Letter Oh',
-                }
-            ]
-        },
-        {
-            'latin': 'p',
-            'similar': [
-                {
-                    '\u0440': 'Cyrillic Small Letter Er'
-                }
-            ]
-        },
-        {
-            'latin': 's',
-            'similar': [
-                {
-                    '\u0455': 'Cyrillic Small Letter Dze'
-                }
-            ]
-        },
-        {
-            'latin': 'd',
-            'similar': [
-                {
-                    '\u0501': 'Cyrillic Capital Letter Komi Dzje'
-                }
-            ]
-        },
-        {
-            'latin': 'l',
-            'similar': [
-                {
-                    '\u0269': 'Latin Small Letter I With Stroke'
-                }
-            ]
-        },
-        {
-            'latin': 'g',
-            'similar': [
-                {
-                    '\u0261': 'Latin Small Letter Script G'
-                }
-            ]
-        },
-        {
-            'latin': 'n',
-            'similar': [
-                {
-                    '\u0578': 'Armenian Small Letter Vo'
-                }
-            ]
-        },
-        {
-            'latin': 'u',
-            'similar': [
-                {
-                    '\u057D': 'Armenian Small Letter Se'
-                }
-            ]
-        },
-    ]
+    unicode_combinations_file = Path(__file__).resolve().parent / "./unicode_combinations.json"
+    unicode_combinations = load_unicode_combinations_from_file(unicode_combinations_file)
 
-    show_domains_only = False
+    if unicode_combinations is not None:
+        show_domains_only = False
 
-    if '-d' in sys.argv:
-        show_domains_only = True
-        sys.argv.remove('-d')
+        if '-d' in sys.argv:
+            show_domains_only = True
+            sys.argv.remove('-d')
 
-    homograph_analyzer = HomographAnalyzer(unicode_combinations, show_domains_only)
+        homograph_analyzer = HomographAnalyzer(unicode_combinations, show_domains_only)
 
-    if len(sys.argv) == 2:
-        homograph_analyzer.analyze_domain(sys.argv[1])
-    elif len(sys.argv) == 3 and sys.argv[1] == '-f':
-        try:
-            with open(sys.argv[2], 'r') as file:
-                domains = file.read().splitlines()
-                for domain in domains:
-                    homograph_analyzer.analyze_domain(domain)
-        except FileNotFoundError:
-            print(f"Error: File {sys.argv[2]} not found.")
-    else:
-        print("Usage: python evilurl.py <domain> OR python evilurl.py -f <file_path>")
+        if len(sys.argv) == 2:
+            homograph_analyzer.analyze_domain(sys.argv[1])
+        elif len(sys.argv) == 3 and sys.argv[1] == '-f':
+            try:
+                with open(sys.argv[2], 'r') as file:
+                    domains = file.read().splitlines()
+                    for domain in domains:
+                        homograph_analyzer.analyze_domain(domain)
+            except FileNotFoundError:
+                print(f"Error: File {sys.argv[2]} not found.")
+        else:
+            print("Usage: python evilurl.py <domain> OR python evilurl.py -f <file_path>")
 
 if __name__ == "__main__":
     main()
