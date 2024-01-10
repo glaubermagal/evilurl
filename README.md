@@ -47,23 +47,7 @@ The primary motivation behind this project is to raise awareness about the poten
 pip install evilurl
 ```
 
-## Usage
-
-### Single Domain Analysis
-To check a single domain, run the tool with the following command:
-
-```bash
-evilurl <domain>
-```
-
-### Batch Analysis from File
-To analyze multiple domains from a file, use the following command:
-
-```bash
-evilurl -f <file_path>
-```
-
-## Dependencies
+## Dependencies for Local Installation
 - Python 3
 - idna library
 
@@ -78,6 +62,22 @@ Install the required library using:
 
 ```bash
 pip install -r requirements.txt
+```
+
+## Usage
+
+### Single Domain Analysis
+To check a single domain, run the tool with the following command:
+
+```bash
+evilurl <domain>
+```
+
+### Batch Analysis from File
+To analyze multiple domains from a file, use the following command:
+
+```bash
+evilurl -f <file_path>
 ```
 
 ## Unicode Combinations
