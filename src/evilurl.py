@@ -66,11 +66,11 @@ class HomographAnalyzer:
 
         domains = []
         for combination in product(*combinations):
-            new_domain = ''.join(combination) + '.' + domain_parts[1]
+            new_domain = ''.join(combination) + '.' + '.'.join(domain_parts[1:])
             domains.append(new_domain)
 
         if len(domains) <= 1:
-            print(f"IDN homograph attack is not possible for this domain")
+            return print(f"IDN homograph attack is not possible for this domain with the current character set")
 
         if not self.show_domains_only:
             print(header)
@@ -82,11 +82,13 @@ class HomographAnalyzer:
                 print(new_domain)
         else:
             for index, new_domain in enumerate(domains[1:]):
-                print(f"\n{index + 1} -------------------------------")
-
                 dns = self.check_domain_registration(new_domain)
                 punycode_encoded_domain = self.convert_to_punycode(new_domain)
-
+                
+                if new_domain == punycode_encoded_domain:
+                    continue
+                
+                print(f"\n{index + 1} -------------------------------")
                 print(f"homograph domain: {new_domain}")
                 print(f"punycode: {punycode_encoded_domain}")
                 if dns:
