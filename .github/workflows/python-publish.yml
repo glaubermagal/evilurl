@@ -23,6 +23,8 @@ jobs:
         pip install setuptools wheel twine
 
     - name: Build and publish
+      env:
+        PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
       run: |
         python setup.py sdist
-        twine upload dist/* -u __token__ -p ${{ secrets.PYPI_API_TOKEN }} --verbose
+        twine upload dist/* -u __token__ -p $PYPI_API_TOKEN --verbose
