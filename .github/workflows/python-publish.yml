@@ -3,6 +3,8 @@ name: Upload Python Package
 on:
   release:
     types: [published]
+env:
+  PYPIRC_FILE: .pypirc
 
 jobs:
   deploy:
@@ -23,9 +25,8 @@ jobs:
         pip install setuptools wheel twine
 
     - name: Build and publish
-      env:
-        TWINE_USERNAME: __apt65__
-        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
       run: |
+        sudo apt-get install -y gettext-base
+        envsubst < $PYPIRC_FILE
         python setup.py sdist
-        twine upload dist/* --verbose
+        twine upload dist/* --config-file $PYPIRC_FILE --verbose
