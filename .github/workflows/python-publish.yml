@@ -3,8 +3,6 @@ name: Upload Python Package
 on:
   release:
     types: [published]
-env:
-  PYPIRC_FILE: .pypirc
 
 jobs:
   deploy:
@@ -26,7 +24,5 @@ jobs:
 
     - name: Build and publish
       run: |
-        sudo apt-get install -y gettext-base
-        envsubst < $PYPIRC_FILE
         python setup.py sdist
-        twine upload dist/* --config-file $PYPIRC_FILE --verbose
+        twine upload dist/* -u __token__ -p ${{ secrets.PYPI_API_TOKEN }} --verbose
