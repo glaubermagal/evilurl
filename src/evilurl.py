@@ -59,6 +59,7 @@ class HomographAnalyzer:
         return result, list(chars)
 
     def analyze_domain(self, domain):
+        domain = domain.lower()
         domain_parts = self.extract_domain_parts(domain)
         result = self.generate_combinations(domain_parts[0])
         combinations = result[0]

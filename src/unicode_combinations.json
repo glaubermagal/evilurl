@@ -3,8 +3,20 @@
         "latin": "a",
         "similar": [
             {
-                "\u0430": "Cyrillic Small Letter A",
-                "\u0251": "Latin Small Letter Alpha"
+                "\u0430": "CYRILLIC SMALL LETTER A",
+                "\u0251": "LATIN SMALL LETTER ALPHA",
+                "\u03B1": "GREEK SMALL LETTER ALPHA",
+                "\u237A": "APL FUNCTIONAL SYMBOL ALPHA"
+            }
+        ]
+    },
+    {
+        "latin": "b",
+        "similar": [
+            {
+                "\u15AF": "CANADIAN SYLLABICS AIVILIK B",
+                "\u042C": "CYRILLIC CAPITAL LETTER SOFT SIGN",
+                "\u13CF": "CHEROKEE LETTER SI"
             }
         ]
     },
@@ -12,7 +24,11 @@
         "latin": "c",
         "similar": [
             {
-                "\u03F2": "Greek Lunate Sigma Symbol"
+                "\u03F2": "GREEK LUNATE SIGMA SYMBOL",
+                "\u2CA5": "COPTIC SMALL LETTER SIMA",
+                "\u0441": "CYRILLIC SMALL LETTER ES",
+                "\u217D": "SMALL ROMAN NUMERAL ONE HUNDRED",
+                "\u1D04": "LATIN LETTER SMALL CAPITAL C"
             }
         ]
     },
@@ -20,7 +36,9 @@
         "latin": "e",
         "similar": [
             {
-                "\u0435": "Cyrillic Small Letter Ye"
+                "\u0435": "CYRILLIC SMALL LETTER YE",
+                "\u212E": "ESTIMATED SYMBOL",
+                "\u212F": "SCRIPT SMALL E"
             }
         ]
     },
@@ -28,10 +46,10 @@
         "latin": "o",
         "similar": [
             {
-                "\u043E": "Cyrillic Small Letter O",
-                "\u03BF": "Greek small letter Omicron",
-                "\u006F": "Latin small letter O",
-                "\u0585": "Armenian Small Letter Oh"
+                "\u043E": "CYRILLIC SMALL LETTER O",
+                "\u03BF": "GREEK SMALL LETTER OMICRON",
+                "\u006F": "LATIN SMALL LETTER O",
+                "\u0585": "ARMENIAN SMALL LETTER OH"
             }
         ]
     },
@@ -39,7 +57,7 @@
         "latin": "p",
         "similar": [
             {
-                "\u0440": "Cyrillic Small Letter Er"
+                "\u0440": "CYRILLIC SMALL LETTER ER"
             }
         ]
     },
@@ -47,7 +65,7 @@
         "latin": "s",
         "similar": [
             {
-                "\u0455": "Cyrillic Small Letter Dze"
+                "\u0455": "CYRILLIC SMALL LETTER DZE"
             }
         ]
     },
@@ -55,7 +73,7 @@
         "latin": "i",
         "similar": [
             {
-                "\u0456": "Cyrillic small letter I"
+                "\u0456": "CYRILLIC SMALL LETTER I"
             }
         ]
     },
@@ -63,7 +81,11 @@
         "latin": "d",
         "similar": [
             {
-                "\u0501": "Cyrillic Capital Letter Komi Dzje"
+                "\u0064": "LATIN SMALL LETTER D",
+                "\u217E": "SMALL ROMAN NUMERAL FIVE HUNDRED",
+                "\u0501": "CYRILLIC SMALL LETTER KOMI DE",
+                "\u146F": "CANADIAN SYLLABICS KO",
+                "\uA4D2": "LISU LETTER PHA"
             }
         ]
     },
@@ -71,7 +93,7 @@
         "latin": "l",
         "similar": [
             {
-                "\u0269": "Latin Small Letter I With Stroke"
+                "\u0269": "LATIN SMALL LETTER I WITH STROKE"
             }
         ]
     },
@@ -79,7 +101,7 @@
         "latin": "g",
         "similar": [
             {
-                "\u0261": "Latin Small Letter Script G"
+                "\u0261": "LATIN SMALL LETTER SCRIPT G"
             }
         ]
     },
@@ -87,7 +109,7 @@
         "latin": "n",
         "similar": [
             {
-                "\u0578": "Armenian Small Letter Vo"
+                "\u0578": "ARMENIAN SMALL LETTER VO"
             }
         ]
     },
@@ -95,7 +117,7 @@
         "latin": "u",
         "similar": [
             {
-                "\u057D": "Armenian Small Letter Se"
+                "\u057D": "ARMENIAN SMALL LETTER SE"
             }
         ]
     },
@@ -103,7 +125,7 @@
         "latin": "k",
         "similar": [
             {
-                "\u03BA": "Greek small letter Kappa"
+                "\u03BA": "GREEK SMALL LETTER KAPPA"
             }
         ]
     },
@@ -111,7 +133,7 @@
         "latin": "h",
         "similar": [
             {
-                "\u04BB": "Cyrillic small letter Shha"
+                "\u04BB": "CYRILLIC SMALL LETTER SHHA"
             }
         ]
     },
@@ -119,7 +141,7 @@
         "latin": "x",
         "similar": [
             {
-                "\u0445": "Cyrillic small letter Kha"
+                "\u0445": "CYRILLIC SMALL LETTER KHA"
             }
         ]
     },
@@ -127,7 +149,7 @@
         "latin": "y",
         "similar": [
             {
-                "\u0443": "Cyrillic small letter"
+                "\u0443": "CYRILLIC SMALL LETTER"
             }
         ]
     }
