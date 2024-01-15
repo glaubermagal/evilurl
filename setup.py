@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='evilurl',
-    version='0.0.15',
+    version='0.0.16',
     packages=['src'],
     package_data={'src': ['unicode_combinations.json']},
     setup_requires=['wheel'],

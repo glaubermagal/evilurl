@@ -33,6 +33,17 @@
         ]
     },
     {
+        "latin": "d",
+        "similar": [
+            {
+                "\u217E": "SMALL ROMAN NUMERAL FIVE HUNDRED",
+                "\u0501": "CYRILLIC SMALL LETTER KOMI DE",
+                "\u146F": "CANADIAN SYLLABICS KO",
+                "\uA4D2": "LISU LETTER PHA"
+            }
+        ]
+    },
+    {
         "latin": "e",
         "similar": [
             {
@@ -43,13 +54,96 @@
         ]
     },
     {
+        "latin": "f",
+        "similar": [
+            {
+                "\u017F": "LATIN SMALL LETTER LONG S"
+            }
+        ]
+    },
+    {
+        "latin": "g",
+        "similar": [
+            {
+                "\u0261": "LATIN SMALL LETTER SCRIPT G",
+                "\u018D": "LATIN SMALL LETTER TURNED DELTA",
+                "\u0581": "ARMENIAN SMALL LETTER CO"
+            }
+        ]
+    },
+    {
+        "latin": "h",
+        "similar": [
+            {
+                "\u04BB": "CYRILLIC SMALL LETTER SHHA",
+                "\u13C2": "CHEROKEE LETTER NI"
+            }
+        ]
+    },
+    {
+        "latin": "i",
+        "similar": [
+            {
+                "\u0456": "CYRILLIC SMALL LETTER I",
+                "\u2170": "SMALL ROMAN NUMERAL ONE"
+            }
+        ]
+    },
+    {
+        "latin": "j",
+        "similar": [
+            {
+                "\u0237": "LATIN SMALL LETTER DOTLESS J",
+                "\u0458": "CYRILLIC SMALL LETTER JE",
+                "\u03F3": "GREEK LETTER YOT"
+            }
+        ]
+    },
+    {
+        "latin": "k",
+        "similar": [
+            {
+                "\u03BA": "GREEK SMALL LETTER KAPPA",
+                "\u0138": "LATIN SMALL LETTER KRA",
+                "\u1D0B": "LATIN LETTER SMALL CAPITAL K",
+                "\u043A": "CYRILLIC SMALL LETTER KA",
+                "\u2C95": "COPTIC SMALL LETTER KAPA"
+            }
+        ]
+    },
+    {
+        "latin": "l",
+        "similar": [
+            {
+                "\u0269": "LATIN SMALL LETTER I WITH STROKE"
+            }
+        ]
+    },
+    {
+        "latin": "n",
+        "similar": [
+            {
+                "\u0578": "ARMENIAN SMALL LETTER VO"
+            }
+        ]
+    },
+    {
         "latin": "o",
         "similar": [
             {
                 "\u043E": "CYRILLIC SMALL LETTER O",
                 "\u03BF": "GREEK SMALL LETTER OMICRON",
                 "\u006F": "LATIN SMALL LETTER O",
-                "\u0585": "ARMENIAN SMALL LETTER OH"
+                "\u0585": "ARMENIAN SMALL LETTER OH",
+                "\u1D0F": "LATIN LETTER SMALL CAPITAL O",
+                "\u1D11": "LATIN SMALL LETTER SIDEWAYS O",
+                "\u0BE6": "TAMIL DIGIT ZERO",
+                "\u0C66": "TELUGU DIGIT ZERO",
+                "\u0D66": "MALAYALAM DIGIT ZERO",
+                "\u0ED0": "LAO DIGIT ZERO",
+                "\u101D": "MYANMAR LETTER WA",
+                "\u1040": "MYANMAR DIGIT ZERO",
+                "\u2C9F": "COPTIC SMALL LETTER O"
             }
         ]
     },
@@ -70,70 +164,10 @@
         ]
     },
     {
-        "latin": "i",
-        "similar": [
-            {
-                "\u0456": "CYRILLIC SMALL LETTER I"
-            }
-        ]
-    },
-    {
-        "latin": "d",
-        "similar": [
-            {
-                "\u0064": "LATIN SMALL LETTER D",
-                "\u217E": "SMALL ROMAN NUMERAL FIVE HUNDRED",
-                "\u0501": "CYRILLIC SMALL LETTER KOMI DE",
-                "\u146F": "CANADIAN SYLLABICS KO",
-                "\uA4D2": "LISU LETTER PHA"
-            }
-        ]
-    },
-    {
-        "latin": "l",
-        "similar": [
-            {
-                "\u0269": "LATIN SMALL LETTER I WITH STROKE"
-            }
-        ]
-    },
-    {
-        "latin": "g",
-        "similar": [
-            {
-                "\u0261": "LATIN SMALL LETTER SCRIPT G"
-            }
-        ]
-    },
-    {
-        "latin": "n",
-        "similar": [
-            {
-                "\u0578": "ARMENIAN SMALL LETTER VO"
-            }
-        ]
-    },
-    {
         "latin": "u",
         "similar": [
             {
                 "\u057D": "ARMENIAN SMALL LETTER SE"
-            }
-        ]
-    },
-    {
-        "latin": "k",
-        "similar": [
-            {
-                "\u03BA": "GREEK SMALL LETTER KAPPA"
-            }
-        ]
-    },
-    {
-        "latin": "h",
-        "similar": [
-            {
-                "\u04BB": "CYRILLIC SMALL LETTER SHHA"
             }
         ]
     },
