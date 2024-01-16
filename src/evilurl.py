@@ -3,7 +3,6 @@ import socket
 import sys
 from itertools import product
 from urllib.parse import urlsplit
-import idna
 import json
 
 header = """
@@ -23,13 +22,6 @@ class HomographAnalyzer:
     def __init__(self, unicode_combinations, show_domains_only):
         self.unicode_combinations = unicode_combinations
         self.show_domains_only = show_domains_only
-
-    def convert_to_punycode(self, input_string):
-        try:
-            punycode = idna.encode(input_string)
-            return punycode.decode('utf-8')
-        except UnicodeError:
-            return None
 
     def check_domain_registration(self, domain_name):
         try:
@@ -65,12 +57,13 @@ class HomographAnalyzer:
         combinations = result[0]
         chars = result[1]
 
-        domains = []
+        unique_domains = set()  # Keep track of unique domains
+
         for combination in product(*combinations):
             new_domain = ''.join(combination) + '.' + '.'.join(domain_parts[1:])
-            domains.append(new_domain)
+            unique_domains.add(new_domain)  # Add the domain to the set
 
-        if len(domains) <= 1:
+        if len(unique_domains) <= 1:
             return print(f"IDN homograph attack is not possible for this domain with the current character set")
 
         if not self.show_domains_only:
@@ -79,16 +72,16 @@ class HomographAnalyzer:
             print(f"\033[32m[\033[0m*\033[32m]\033[0m Homograph characters used: \033[32m{chars}\033[0m")
 
         if self.show_domains_only:
-            for new_domain in domains[1:]:
+            for new_domain in unique_domains:
                 print(new_domain)
         else:
-            for index, new_domain in enumerate(domains[1:]):
+            for index, new_domain in enumerate(unique_domains):
                 dns = self.check_domain_registration(new_domain)
-                punycode_encoded_domain = self.convert_to_punycode(new_domain)
+                punycode_encoded_domain = new_domain.encode('idna').decode()
                 
                 if new_domain == punycode_encoded_domain:
                     continue
-                
+
                 print(f"\n{index + 1} -------------------------------")
                 print(f"homograph domain: {new_domain}")
                 print(f"punycode: {punycode_encoded_domain}")

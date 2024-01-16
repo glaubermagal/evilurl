@@ -49,7 +49,6 @@ pip install evilurl
 
 ## Dependencies for Local Installation
 - Python 3
-- idna library
 
 Create a virtualenv
 
