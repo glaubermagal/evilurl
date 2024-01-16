@@ -57,11 +57,11 @@ class HomographAnalyzer:
         combinations = result[0]
         chars = result[1]
 
-        unique_domains = set()  # Keep track of unique domains
+        unique_domains = set()
 
         for combination in product(*combinations):
             new_domain = ''.join(combination) + '.' + '.'.join(domain_parts[1:])
-            unique_domains.add(new_domain)  # Add the domain to the set
+            unique_domains.add(new_domain)
 
         if len(unique_domains) <= 1:
             return print(f"IDN homograph attack is not possible for this domain with the current character set")
