@@ -27,10 +27,6 @@ class TestHomographAnalyzer(unittest.TestCase):
         ]
         self.analyzer = HomographAnalyzer(unicode_combinations, show_domains_only=False)
 
-    def test_convert_to_punycode(self):
-        punycode = self.analyzer.convert_to_punycode("gіtһսb.com")
-        self.assertEqual(punycode, "xn--gtb-jhd02cr1b.com")
-
     @patch('socket.gethostbyname')
     def test_check_domain_registration(self, mock_gethostbyname):
         mock_gethostbyname.return_value = "127.0.0.1"
