@@ -151,7 +151,29 @@
         "latin": "p",
         "similar": [
             {
-                "\u0440": "CYRILLIC SMALL LETTER ER"
+                "\u0440": "CYRILLIC SMALL LETTER ER",
+                "\u03C1": "GREEK SMALL LETTER RHO",
+                "\u2374": "APL FUNCTIONAL SYMBOL RHO"
+            }
+        ]
+    },
+    {
+        "latin": "q",
+        "similar": [
+            {
+                "\u051B": "CYRILLIC SMALL LETTER QA",
+                "\u0563": "ARMENIAN SMALL LETTER GIM",
+                "\u0566": "ARMENIAN SMALL LETTER ZA"
+            }
+        ]
+    },
+    {
+        "latin": "r",
+        "similar": [
+            {
+                "\u0433": "CYRILLIC SMALL LETTER GHE",
+                "\u1D26": "GREEK LETTER SMALL CAPITAL GAMMA",
+                "\u2C85": "COPTIC SMALL LETTER GAMMA"
             }
         ]
     },
@@ -159,7 +181,18 @@
         "latin": "s",
         "similar": [
             {
-                "\u0455": "CYRILLIC SMALL LETTER DZE"
+                "\u0455": "CYRILLIC SMALL LETTER DZE",
+                "\uA731": "LATIN LETTER SMALL CAPITAL S"
+            }
+        ]
+    },
+    {
+        "latin": "t",
+        "similar": [
+            {
+                "\u1D1B": "LATIN LETTER SMALL CAPITAL T",
+                "\u03C4": "GREEK SMALL LETTER TAU",
+                "\u0442": "CYRILLIC SMALL LETTER TE"
             }
         ]
     },
@@ -167,7 +200,28 @@
         "latin": "u",
         "similar": [
             {
-                "\u057D": "ARMENIAN SMALL LETTER SE"
+                "\u057D": "ARMENIAN SMALL LETTER SEH",
+                "\u1D1C": "LATIN LETTER SMALL CAPITAL U"
+            }
+        ]
+    },
+    {
+        "latin": "v",
+        "similar": [
+            {
+                "\u1D20": "LATIN LETTER SMALL CAPITAL V",
+                "\u03BD": "GREEK SMALL LETTER NU",
+                "\u0475": "CYRILLIC SMALL LETTER IZHITSA",
+                "\u2228": "LOGICAL OR"
+            }
+        ]
+    },
+    {
+        "latin": "w",
+        "similar": [
+            {
+                "\u1D21": "LATIN LETTER SMALL CAPITAL W",
+                "\u051D": "CYRILLIC SMALL LETTER WE"
             }
         ]
     },
@@ -175,7 +229,9 @@
         "latin": "x",
         "similar": [
             {
-                "\u0445": "CYRILLIC SMALL LETTER KHA"
+                "\u0445": "CYRILLIC SMALL LETTER KHA",
+                "\u2179": "SMALL ROMAN NUMERAL TEN",
+                "\u166E": "CANADIAN SYLLABICS FULL STOP"
             }
         ]
     },
@@ -183,7 +239,17 @@
         "latin": "y",
         "similar": [
             {
-                "\u0443": "CYRILLIC SMALL LETTER"
+                "\u0443": "CYRILLIC SMALL LETTER U",
+                "\u028F": "LATIN LETTER SMALL CAPITAL Y",
+                "\u03B3": "GREEK SMALL LETTER GAMMA"
+            }
+        ]
+    },
+    {
+        "latin": "z",
+        "similar": [
+            {
+                "\u1D22": "LATIN LETTER SMALL CAPITAL Z"
             }
         ]
     }
