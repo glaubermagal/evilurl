@@ -12,25 +12,28 @@ evilurl git:(main) ✗ evilurl github.com
  ██████████    ░░███      █████ ███████████    ░░████████   █████   █████ ███████████
 ░░░░░░░░░░      ░░░      ░░░░░ ░░░░░░░░░░░      ░░░░░░░░   ░░░░░   ░░░░░ ░░░░░░░░░░░
 
-[ by @glaubermagal ]
+[ by @glaubermagal – https://github.com/glaubermagal/evilurl]
 
 [*] Domain: github.com
-[*] Homograph characters used: ['ɡ', 'ս']
+[*] Homograph characters used: ['Ꮟ', 'ɡ', 'һ', 'Ꮒ', 'ᖯ', 'ᴜ', 'т', 'і', 'ց', 'ƍ', 'τ', 'ս', 'Ь', 'ᴛ', 'ⅰ']
 
 1 -------------------------------
-homograph domain: githսb.com
-punycode: xn--githb-bjg.com
-DNS:  UNSET
+homograph domain: ցiᴛһuᏏ.com
+punycode: xn--iu-4wc40fg77fqy2p.com
+DNS: UNSET
+MIXED: YES
 
 2 -------------------------------
-homograph domain: ɡithub.com
-punycode: xn--ithub-qmc.com
-DNS:  107.180.21.235
+homograph domain: gⅰτᏂub.com
+punycode: xn--giub-rod2688w.com
+DNS: UNSET
+MIXED: YES
 
 3 -------------------------------
-homograph domain: ɡithսb.com
-punycode: xn--ithb-z7b398b.com
-DNS:  UNSET
+homograph domain: ƍiтһuЬ.com
+punycode: xn--iu-cxa78yqb86b.com
+DNS: UNSET
+MIXED: YES
 ```
 
 ## Overview
@@ -63,6 +66,14 @@ Install the required library using:
 pip install -r requirements.txt
 ```
 
+## Unit Tests
+
+To run the unit tests, use the following command:
+
+```bash
+python -m unittest tests/tests.py
+```
+
 ## Usage
 
 ### Single Domain Analysis
@@ -82,6 +93,8 @@ evilurl -f <file_path>
 ## Unicode Combinations
 
 The tool considers various Unicode combinations for visually similar characters, including Cyrillic, Greek, and Armenian characters. The combinations are defined in the tool to assist in the identification of potential homograph attacks.
+
+In the output, "MIXED NO" indicates that the domain uses a single character family and is typically eligible for registration with most registrars.
 
 ## Disclaimer
 
@@ -108,7 +121,12 @@ evilurl -f domains.txt
 
 ### Return only the homograph domains
 ```bash
-evilurl example.com -d
+evilurl example.com --domains-only
+```
+
+### Output the DNS registration status
+```bash
+evilurl example.com --dns
 ```
 
 ## License

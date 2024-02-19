@@ -3,10 +3,24 @@
         "latin": "a",
         "similar": [
             {
-                "\u0430": "CYRILLIC SMALL LETTER A",
-                "\u0251": "LATIN SMALL LETTER ALPHA",
-                "\u03B1": "GREEK SMALL LETTER ALPHA",
-                "\u237A": "APL FUNCTIONAL SYMBOL ALPHA"
+                "CYRILLIC": {
+                    "\u0430": "CYRILLIC SMALL LETTER A"
+                }
+            },
+            {
+                "LATIN": {
+                    "\u0251": "LATIN SMALL LETTER ALPHA"
+                }
+            },
+            {
+                "GREEK": {
+                    "\u03B1": "GREEK SMALL LETTER ALPHA"
+                }
+            },
+            {
+                "APL": {
+                    "\u237A": "APL FUNCTIONAL SYMBOL ALPHA"
+                }
             }
         ]
     },
@@ -14,9 +28,19 @@
         "latin": "b",
         "similar": [
             {
-                "\u15AF": "CANADIAN SYLLABICS AIVILIK B",
-                "\u042C": "CYRILLIC CAPITAL LETTER SOFT SIGN",
-                "\u13CF": "CHEROKEE LETTER SI"
+                "CANADIAN": {
+                    "\u15AF": "CANADIAN SYLLABICS AIVILIK B"
+                }
+            },
+            {
+                "CYRILLIC": {
+                    "\u042C": "CYRILLIC CAPITAL LETTER SOFT SIGN"
+                }
+            },
+            {
+                "CHEROKEE": {
+                    "\u13CF": "CHEROKEE LETTER SI"
+                }
             }
         ]
     },
@@ -24,11 +48,25 @@
         "latin": "c",
         "similar": [
             {
-                "\u03F2": "GREEK LUNATE SIGMA SYMBOL",
-                "\u2CA5": "COPTIC SMALL LETTER SIMA",
-                "\u0441": "CYRILLIC SMALL LETTER ES",
-                "\u217D": "SMALL ROMAN NUMERAL ONE HUNDRED",
-                "\u1D04": "LATIN LETTER SMALL CAPITAL C"
+                "GREEK": {
+                    "\u03F2": "GREEK LUNATE SIGMA SYMBOL"
+                }
+            },
+            {
+                "COPTIC": {
+                    "\u2CA5": "COPTIC SMALL LETTER SIMA"
+                }
+            },
+            {
+                "CYRILLIC": {
+                    "\u0441": "CYRILLIC SMALL LETTER ES"
+                }
+            },
+            {
+                "LATIN": {
+                    "\u217D": "SMALL ROMAN NUMERAL ONE HUNDRED",
+                    "\u1D04": "LATIN LETTER SMALL CAPITAL C"
+                }
             }
         ]
     },
@@ -36,10 +74,20 @@
         "latin": "d",
         "similar": [
             {
-                "\u217E": "SMALL ROMAN NUMERAL FIVE HUNDRED",
-                "\u0501": "CYRILLIC SMALL LETTER KOMI DE",
-                "\u146F": "CANADIAN SYLLABICS KO",
-                "\uA4D2": "LISU LETTER PHA"
+                "LATIN": {
+                    "\u217E": "SMALL ROMAN NUMERAL FIVE HUNDRED",
+                    "\uA4D2": "LISU LETTER PHA"
+                }
+            },
+            {
+                "CYRILLIC": {
+                    "\u0501": "CYRILLIC SMALL LETTER KOMI DE"
+                }
+            },
+            {
+                "CANADIAN": {
+                    "\u146F": "CANADIAN SYLLABICS KO"
+                }
             }
         ]
     },
@@ -47,9 +95,9 @@
         "latin": "e",
         "similar": [
             {
-                "\u0435": "CYRILLIC SMALL LETTER YE",
-                "\u212E": "ESTIMATED SYMBOL",
-                "\u212F": "SCRIPT SMALL E"
+                "CYRILLIC": {
+                    "\u0435": "CYRILLIC SMALL LETTER YE"
+                }
             }
         ]
     },
@@ -57,7 +105,9 @@
         "latin": "f",
         "similar": [
             {
-                "\u017F": "LATIN SMALL LETTER LONG S"
+                "LATIN": {
+                    "\u017F": "LATIN SMALL LETTER LONG S"
+                }
             }
         ]
     },
@@ -65,9 +115,15 @@
         "latin": "g",
         "similar": [
             {
-                "\u0261": "LATIN SMALL LETTER SCRIPT G",
-                "\u018D": "LATIN SMALL LETTER TURNED DELTA",
-                "\u0581": "ARMENIAN SMALL LETTER CO"
+                "LATIN": {
+                    "\u0261": "LATIN SMALL LETTER SCRIPT G",
+                    "\u018D": "LATIN SMALL LETTER TURNED DELTA"
+                }
+            },
+            {
+                "ARMENIAN": {
+                    "\u0581": "ARMENIAN SMALL LETTER CO"
+                }
             }
         ]
     },
@@ -75,8 +131,14 @@
         "latin": "h",
         "similar": [
             {
-                "\u04BB": "CYRILLIC SMALL LETTER SHHA",
-                "\u13C2": "CHEROKEE LETTER NI"
+                "CYRILLIC": {
+                    "\u04BB": "CYRILLIC SMALL LETTER SHHA"
+                }
+            },
+            {
+                "CHEROKEE": {
+                    "\u13C2": "CHEROKEE LETTER NI"
+                }
             }
         ]
     },
@@ -84,8 +146,14 @@
         "latin": "i",
         "similar": [
             {
-                "\u0456": "CYRILLIC SMALL LETTER I",
-                "\u2170": "SMALL ROMAN NUMERAL ONE"
+                "CYRILLIC": {
+                    "\u0456": "CYRILLIC SMALL LETTER I"
+                }
+            },
+            {
+                "LATIN": {
+                    "\u2170": "SMALL ROMAN NUMERAL ONE"
+                }
             }
         ]
     },
@@ -93,9 +161,19 @@
         "latin": "j",
         "similar": [
             {
-                "\u0237": "LATIN SMALL LETTER DOTLESS J",
-                "\u0458": "CYRILLIC SMALL LETTER JE",
-                "\u03F3": "GREEK LETTER YOT"
+                "LATIN": {
+                    "\u0237": "LATIN SMALL LETTER DOTLESS J"
+                }
+            },
+            {
+                "CYRILLIC": {
+                    "\u0458": "CYRILLIC SMALL LETTER JE"
+                }
+            },
+            {
+                "GREEK": {
+                    "\u03F3": "GREEK LETTER YOT"
+                }
             }
         ]
     },
@@ -103,11 +181,25 @@
         "latin": "k",
         "similar": [
             {
-                "\u03BA": "GREEK SMALL LETTER KAPPA",
-                "\u0138": "LATIN SMALL LETTER KRA",
-                "\u1D0B": "LATIN LETTER SMALL CAPITAL K",
-                "\u043A": "CYRILLIC SMALL LETTER KA",
-                "\u2C95": "COPTIC SMALL LETTER KAPA"
+                "GREEK": {
+                    "\u03BA": "GREEK SMALL LETTER KAPPA"
+                }
+            },
+            {
+                "LATIN": {
+                    "\u0138": "LATIN SMALL LETTER KRA",
+                    "\u1D0B": "LATIN LETTER SMALL CAPITAL K"
+                }
+            },
+            {
+                "CYRILLIC": {
+                    "\u043A": "CYRILLIC SMALL LETTER KA"
+                }
+            },
+            {
+                "COPTIC": {
+                    "\u2C95": "COPTIC SMALL LETTER KAPA"
+                }
             }
         ]
     },
@@ -115,7 +207,9 @@
         "latin": "l",
         "similar": [
             {
-                "\u0269": "LATIN SMALL LETTER I WITH STROKE"
+                "LATIN": {
+                    "\u0269": "LATIN SMALL LETTER I WITH STROKE"
+                }
             }
         ]
     },
@@ -123,7 +217,9 @@
         "latin": "n",
         "similar": [
             {
-                "\u0578": "ARMENIAN SMALL LETTER VO"
+                "ARMENIAN": {
+                    "\u0578": "ARMENIAN SMALL LETTER VO"
+                }
             }
         ]
     },
@@ -131,19 +227,57 @@
         "latin": "o",
         "similar": [
             {
-                "\u043E": "CYRILLIC SMALL LETTER O",
-                "\u03BF": "GREEK SMALL LETTER OMICRON",
-                "\u006F": "LATIN SMALL LETTER O",
-                "\u0585": "ARMENIAN SMALL LETTER OH",
-                "\u1D0F": "LATIN LETTER SMALL CAPITAL O",
-                "\u1D11": "LATIN SMALL LETTER SIDEWAYS O",
-                "\u0BE6": "TAMIL DIGIT ZERO",
-                "\u0C66": "TELUGU DIGIT ZERO",
-                "\u0D66": "MALAYALAM DIGIT ZERO",
-                "\u0ED0": "LAO DIGIT ZERO",
-                "\u101D": "MYANMAR LETTER WA",
-                "\u1040": "MYANMAR DIGIT ZERO",
-                "\u2C9F": "COPTIC SMALL LETTER O"
+                "CYRILLIC": {
+                    "\u043E": "CYRILLIC SMALL LETTER O"
+                }
+            },
+            {
+                "GREEK": {
+                    "\u03BF": "GREEK SMALL LETTER OMICRON"
+                }
+            },
+            {
+                "LATIN": {
+                    "\u006F": "LATIN SMALL LETTER O",
+                    "\u1D0F": "LATIN LETTER SMALL CAPITAL O",
+                    "\u1D11": "LATIN SMALL LETTER SIDEWAYS O"
+                }
+            },
+            {
+                "ARMENIAN": {
+                    "\u0585": "ARMENIAN SMALL LETTER OH"
+                }
+            },
+            {
+                "TAMIL": {
+                    "\u0BE6": "TAMIL DIGIT ZERO"
+                }
+            },
+            {
+                "TELUGU": {
+                    "\u0C66": "TELUGU DIGIT ZERO"
+                }
+            },
+            {
+                "MALAYALAM": {
+                    "\u0D66": "MALAYALAM DIGIT ZERO"
+                }
+            },
+            {
+                "LAO": {
+                    "\u0ED0": "LAO DIGIT ZERO"
+                }
+            },
+            {
+                "MYANMAR": {
+                    "\u101D": "MYANMAR LETTER WA",
+                    "\u1040": "MYANMAR DIGIT ZERO"
+                }
+            },
+            {
+                "COPTIC": {
+                    "\u2C9F": "COPTIC SMALL LETTER O"
+                }
             }
         ]
     },
@@ -151,9 +285,19 @@
         "latin": "p",
         "similar": [
             {
-                "\u0440": "CYRILLIC SMALL LETTER ER",
-                "\u03C1": "GREEK SMALL LETTER RHO",
-                "\u2374": "APL FUNCTIONAL SYMBOL RHO"
+                "CYRILLIC": {
+                    "\u0440": "CYRILLIC SMALL LETTER ER"
+                }
+            },
+            {
+                "GREEK": {
+                    "\u03C1": "GREEK SMALL LETTER RHO"
+                }
+            },
+            {
+                "APL": {
+                    "\u2374": "APL FUNCTIONAL SYMBOL RHO"
+                }
             }
         ]
     },
@@ -161,9 +305,15 @@
         "latin": "q",
         "similar": [
             {
-                "\u051B": "CYRILLIC SMALL LETTER QA",
-                "\u0563": "ARMENIAN SMALL LETTER GIM",
-                "\u0566": "ARMENIAN SMALL LETTER ZA"
+                "CYRILLIC": {
+                    "\u051B": "CYRILLIC SMALL LETTER QA"
+                }
+            },
+            {
+                "ARMENIAN": {
+                    "\u0563": "ARMENIAN SMALL LETTER GIM",
+                    "\u0566": "ARMENIAN SMALL LETTER ZA"
+                }
             }
         ]
     },
@@ -171,9 +321,19 @@
         "latin": "r",
         "similar": [
             {
-                "\u0433": "CYRILLIC SMALL LETTER GHE",
-                "\u1D26": "GREEK LETTER SMALL CAPITAL GAMMA",
-                "\u2C85": "COPTIC SMALL LETTER GAMMA"
+                "CYRILLIC": {
+                    "\u0433": "CYRILLIC SMALL LETTER GHE"
+                }
+            },
+            {
+                "GREEK": {
+                    "\u1D26": "GREEK LETTER SMALL CAPITAL GAMMA"
+                }
+            },
+            {
+                "COPTIC": {
+                    "\u2C85": "COPTIC SMALL LETTER GAMMA"
+                }
             }
         ]
     },
@@ -181,8 +341,14 @@
         "latin": "s",
         "similar": [
             {
-                "\u0455": "CYRILLIC SMALL LETTER DZE",
-                "\uA731": "LATIN LETTER SMALL CAPITAL S"
+                "CYRILLIC": {
+                    "\u0455": "CYRILLIC SMALL LETTER DZE"
+                }
+            },
+            {
+                "LATIN": {
+                    "\uA731": "LATIN LETTER SMALL CAPITAL S"
+                }
             }
         ]
     },
@@ -190,9 +356,19 @@
         "latin": "t",
         "similar": [
             {
-                "\u1D1B": "LATIN LETTER SMALL CAPITAL T",
-                "\u03C4": "GREEK SMALL LETTER TAU",
-                "\u0442": "CYRILLIC SMALL LETTER TE"
+                "LATIN": {
+                    "\u1D1B": "LATIN LETTER SMALL CAPITAL T"
+                }
+            },
+            {
+                "GREEK": {
+                    "\u03C4": "GREEK SMALL LETTER TAU"
+                }
+            },
+            {
+                "CYRILLIC": {
+                    "\u0442": "CYRILLIC SMALL LETTER TE"
+                }
             }
         ]
     },
@@ -200,8 +376,14 @@
         "latin": "u",
         "similar": [
             {
-                "\u057D": "ARMENIAN SMALL LETTER SEH",
-                "\u1D1C": "LATIN LETTER SMALL CAPITAL U"
+                "ARMENIAN": {
+                    "\u057D": "ARMENIAN SMALL LETTER SEH"
+                }
+            },
+            {
+                "LATIN": {
+                    "\u1D1C": "LATIN LETTER SMALL CAPITAL U"
+                }
             }
         ]
     },
@@ -209,10 +391,20 @@
         "latin": "v",
         "similar": [
             {
-                "\u1D20": "LATIN LETTER SMALL CAPITAL V",
-                "\u03BD": "GREEK SMALL LETTER NU",
-                "\u0475": "CYRILLIC SMALL LETTER IZHITSA",
-                "\u2228": "LOGICAL OR"
+                "LATIN": {
+                    "\u1D20": "LATIN LETTER SMALL CAPITAL V",
+                    "\u2228": "LOGICAL OR"
+                }
+            },
+            {
+                "GREEK": {
+                    "\u03BD": "GREEK SMALL LETTER NU"
+                }
+            },
+            {
+                "CYRILLIC": {
+                    "\u0475": "CYRILLIC SMALL LETTER IZHITSA"
+                }
             }
         ]
     },
@@ -220,8 +412,14 @@
         "latin": "w",
         "similar": [
             {
-                "\u1D21": "LATIN LETTER SMALL CAPITAL W",
-                "\u051D": "CYRILLIC SMALL LETTER WE"
+                "LATIN": {
+                    "\u1D21": "LATIN LETTER SMALL CAPITAL W"
+                }
+            },
+            {
+                "CYRILLIC": {
+                    "\u051D": "CYRILLIC SMALL LETTER WE"
+                }
             }
         ]
     },
@@ -229,9 +427,19 @@
         "latin": "x",
         "similar": [
             {
-                "\u0445": "CYRILLIC SMALL LETTER KHA",
-                "\u2179": "SMALL ROMAN NUMERAL TEN",
-                "\u166E": "CANADIAN SYLLABICS FULL STOP"
+                "CYRILLIC": {
+                    "\u0445": "CYRILLIC SMALL LETTER KHA"
+                }
+            },
+            {
+                "LATIN": {
+                    "\u2179": "SMALL ROMAN NUMERAL TEN"
+                }
+            },
+            {
+                "CANADIAN": {
+                    "\u166E": "CANADIAN SYLLABICS FULL STOP"
+                }
             }
         ]
     },
@@ -239,9 +447,19 @@
         "latin": "y",
         "similar": [
             {
-                "\u0443": "CYRILLIC SMALL LETTER U",
-                "\u028F": "LATIN LETTER SMALL CAPITAL Y",
-                "\u03B3": "GREEK SMALL LETTER GAMMA"
+                "CYRILLIC": {
+                    "\u0443": "CYRILLIC SMALL LETTER U"
+                }
+            },
+            {
+                "LATIN": {
+                    "\u028F": "LATIN LETTER SMALL CAPITAL Y"
+                }
+            },
+            {
+                "GREEK": {
+                    "\u03B3": "GREEK SMALL LETTER GAMMA"
+                }
             }
         ]
     },
@@ -249,7 +467,9 @@
         "latin": "z",
         "similar": [
             {
-                "\u1D22": "LATIN LETTER SMALL CAPITAL Z"
+                "LATIN": {
+                    "\u1D22": "LATIN LETTER SMALL CAPITAL Z"
+                }
             }
         ]
     }

@@ -19,9 +19,10 @@ header = """
 """
 
 class HomographAnalyzer:
-    def __init__(self, unicode_combinations, show_domains_only):
+    def __init__(self, unicode_combinations, show_domains_only, check_dns):
         self.unicode_combinations = unicode_combinations
         self.show_domains_only = show_domains_only
+        self.check_dns = check_dns
 
     def check_domain_registration(self, domain_name):
         try:
@@ -38,17 +39,24 @@ class HomographAnalyzer:
     def generate_combinations(self, domain_parts):
         result = []
         chars = set()
+        families = set()
 
         for part in domain_parts:
             variations = [part]
             for char in part:
-                similar_chars = next((entry['similar'][0] for entry in self.unicode_combinations if entry['latin'] == char), [])
-                chars.update(similar_chars)
-                variations.extend(similar_chars)
+                similar_chars_entry = next(
+                    (entry['similar'][0] for entry in self.unicode_combinations if entry['latin'] == char), None)
+
+                print('similar_chars_entry', similar_chars_entry)
+                if similar_chars_entry is not None:
+                    family, characters = list(similar_chars_entry.items())[0]
+                    chars.update(characters)
+                    variations.extend(characters)
+                    families.add(family)
 
             result.append(variations)
 
-        return result, list(chars)
+        return result, list(chars), list(families)
 
     def analyze_domain(self, domain):
         domain = domain.lower()
@@ -56,6 +64,7 @@ class HomographAnalyzer:
         result = self.generate_combinations(domain_parts[0])
         combinations = result[0]
         chars = result[1]
+        families = result[2]
 
         unique_domains = set()
 
@@ -64,7 +73,7 @@ class HomographAnalyzer:
             unique_domains.add(new_domain)
 
         if len(unique_domains) <= 1:
-            return print(f"IDN homograph attack is not possible for this domain with the current character set")
+            return print(f"No unicode combinations found for the current character set")
 
         if not self.show_domains_only:
             print(header)
@@ -73,22 +82,31 @@ class HomographAnalyzer:
 
         if self.show_domains_only:
             for new_domain in unique_domains:
-                print(new_domain)
-        else:
-            for index, new_domain in enumerate(unique_domains):
-                dns = self.check_domain_registration(new_domain)
                 punycode_encoded_domain = new_domain.encode('idna').decode()
-                
+
                 if new_domain == punycode_encoded_domain:
                     continue
 
+                print(new_domain)
+        else:
+            for index, new_domain in enumerate(unique_domains):
+                punycode_encoded_domain = new_domain.encode('idna').decode()
+                
+                if domain == punycode_encoded_domain:
+                    continue
+
                 print(f"\n{index + 1} -------------------------------")
-                print(f"homograph domain: {new_domain}")
-                print(f"punycode: {punycode_encoded_domain}")
-                if dns:
-                    print(f"DNS: \033[31m {dns}\033[0m")
-                else:
-                    print(f"DNS: \033[33m UNSET\033[0m")
+                print(f"Homograph Domain: {new_domain}")
+                print(f"Punycode: {punycode_encoded_domain}")
+
+                if self.check_dns:
+                    dns = self.check_domain_registration(new_domain)
+                    if dns:
+                        print(f"\033[31mDNS: {dns}\033[0m")
+                    else:
+                        print(f"DNS: UNSET")
+                
+                print('\033[33mMixed: NO\033[0m' if punycode_encoded_domain.count("-") == 2 and len(families) == 1 else 'Mixed: YES')
 
 def load_unicode_combinations_from_file(file_path):
     try:
@@ -104,12 +122,17 @@ def main():
 
     if unicode_combinations is not None:
         show_domains_only = False
+        check_dns = False
 
-        if '-d' in sys.argv:
+        if '--domains-only' in sys.argv:
             show_domains_only = True
-            sys.argv.remove('-d')
+            sys.argv.remove('--domains-only')
+        
+        if '--dns' in sys.argv:
+            check_dns = True
+            sys.argv.remove('--dns')
 
-        homograph_analyzer = HomographAnalyzer(unicode_combinations, show_domains_only)
+        homograph_analyzer = HomographAnalyzer(unicode_combinations, show_domains_only, check_dns)
 
         if len(sys.argv) == 2:
             homograph_analyzer.analyze_domain(sys.argv[1])
