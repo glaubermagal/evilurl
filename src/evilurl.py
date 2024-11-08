@@ -19,11 +19,15 @@ header = """
 """
 
 class HomographAnalyzer:
-    def __init__(self, unicode_combinations, show_domains_only, check_dns):
+    def __init__(self, unicode_combinations, show_domains_only, show_mixed_only, show_registered_only):
         self.unicode_combinations = unicode_combinations
         self.show_domains_only = show_domains_only
-        self.check_dns = check_dns
+        self.show_mixed_only = show_mixed_only
+        self.show_registered_only = show_registered_only
 
+    def is_mixed_domain(self, punycode_encoded_domain, families):
+        return not (punycode_encoded_domain.count("-") == 2 and len(families) == 1)
+    
     def check_domain_registration(self, domain_name):
         try:
             dns = socket.gethostbyname(domain_name)
@@ -47,7 +51,8 @@ class HomographAnalyzer:
                 similar_chars_entry = next(
                     (entry['similar'][0] for entry in self.unicode_combinations if entry['latin'] == char), None)
 
-                print('similar_chars_entry', similar_chars_entry)
+                if not self.show_domains_only:
+                    print('similar_chars_entry', similar_chars_entry)
                 if similar_chars_entry is not None:
                     family, characters = list(similar_chars_entry.items())[0]
                     chars.update(characters)
@@ -84,6 +89,13 @@ class HomographAnalyzer:
             for new_domain in unique_domains:
                 punycode_encoded_domain = new_domain.encode('idna').decode()
 
+                dns = self.check_domain_registration(new_domain)
+                if not dns and self.show_registered_only:
+                    continue
+                    
+                if self.show_mixed_only and not self.is_mixed_domain(punycode_encoded_domain, families):
+                    continue
+                
                 if new_domain == punycode_encoded_domain:
                     continue
 
@@ -91,6 +103,14 @@ class HomographAnalyzer:
         else:
             for index, new_domain in enumerate(unique_domains):
                 punycode_encoded_domain = new_domain.encode('idna').decode()
+                is_mixed_domain = self.is_mixed_domain(punycode_encoded_domain, families)
+                
+                dns = self.check_domain_registration(new_domain)
+                if not dns and self.show_registered_only:
+                    continue
+
+                if self.show_mixed_only and not is_mixed_domain:
+                    continue
                 
                 if domain == punycode_encoded_domain:
                     continue
@@ -99,14 +119,12 @@ class HomographAnalyzer:
                 print(f"Homograph Domain: {new_domain}")
                 print(f"Punycode: {punycode_encoded_domain}")
 
-                if self.check_dns:
-                    dns = self.check_domain_registration(new_domain)
-                    if dns:
-                        print(f"\033[31mDNS: {dns}\033[0m")
-                    else:
-                        print(f"DNS: UNSET")
+                if dns:
+                    print(f"\033[31mDNS: {dns}\033[0m")
+                else:
+                    print(f"DNS: UNSET")
                 
-                print('\033[33mMixed: NO\033[0m' if punycode_encoded_domain.count("-") == 2 and len(families) == 1 else 'Mixed: YES')
+                print('\033[33mMixed: NO\033[0m' if not is_mixed_domain else 'Mixed: YES')
 
 def load_unicode_combinations_from_file(file_path):
     try:
@@ -122,17 +140,22 @@ def main():
 
     if unicode_combinations is not None:
         show_domains_only = False
-        check_dns = False
+        show_mixed_only = False
+        show_registered_only = True
 
         if '--domains-only' in sys.argv:
             show_domains_only = True
             sys.argv.remove('--domains-only')
-        
-        if '--dns' in sys.argv:
-            check_dns = True
-            sys.argv.remove('--dns')
 
-        homograph_analyzer = HomographAnalyzer(unicode_combinations, show_domains_only, check_dns)
+        if '--mixed-only' in sys.argv:
+            show_mixed_only = True
+            sys.argv.remove('--mixed-only')
+
+        if '--log-full' in sys.argv:
+            show_registered_only = False
+            sys.argv.remove('--log-full')
+
+        homograph_analyzer = HomographAnalyzer(unicode_combinations, show_domains_only, show_mixed_only, show_registered_only)
 
         if len(sys.argv) == 2:
             homograph_analyzer.analyze_domain(sys.argv[1])
