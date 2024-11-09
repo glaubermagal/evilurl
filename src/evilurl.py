@@ -7,7 +7,7 @@ from itertools import product
 from urllib.parse import urlsplit
 import json
 from tabulate import tabulate
-from publicsuffix2 import get_sld, get_tld
+import tldextract
 
 
 TABLE_HEADERS=["homograph_domain", "punycode", "dns", "mixed", "combinations"]
@@ -51,32 +51,6 @@ class HomographAnalyzer:
         except socket.error:
             return None
 
-    
-    def extract_domain_parts(self, url):
-        # Get the full TLD (including SLD + ccTLD)
-        tld = get_tld(url)
-        
-        # Get the second-level domain (SLD)
-        sld = get_sld(url)
-        
-        # Find the position where the TLD starts
-        idx = url.find(tld)
-        
-        # Extract the subdomain part (if any)
-        subdomain = url[:idx].strip('.')
-        
-        # Combine subdomain and SLD for 'blog.example'
-        domain_without_tld = url[:idx].strip('.')
-        
-        # Return a dictionary with components
-        return {
-            'subdomain': subdomain,
-            'sld': sld,
-            'tld': tld,
-            'full_domain': url,
-            'domain_without_tld': domain_without_tld
-        }
-
     def generate_combinations(self, domain_parts):
         result = []
         chars, families = set(), set()
@@ -97,8 +71,8 @@ class HomographAnalyzer:
 
     def analyze_domain(self, domain):
         domain = domain.lower()
-        domain_parts = self.extract_domain_parts(domain)
-        combinations, chars, families = self.generate_combinations(domain_parts.get("domain_without_tld"))
+        domain_parts = tldextract.extract(domain)
+        combinations, chars, families = self.generate_combinations(domain_parts.domain)
 
         # unique_domains = {''.join(comb) + '.' + '.'.join(domain_parts[1:]) for comb in product(*combinations)}
         unique_domains = {''.join(comb) for comb in product(*combinations)}
@@ -113,7 +87,7 @@ class HomographAnalyzer:
         # Table data collection
         table_data = []
         for index, main_domain_part in enumerate(unique_domains):
-            full_domain = main_domain_part + '.' + domain_parts.get("tld")
+            full_domain = main_domain_part + '.' + domain_parts.suffix
             formatted_combinations = []
             punycode_encoded_domain = main_domain_part.encode('idna').decode()
             if main_domain_part == punycode_encoded_domain:
