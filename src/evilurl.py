@@ -74,7 +74,6 @@ class HomographAnalyzer:
         domain_parts = tldextract.extract(domain)
         combinations, chars, families = self.generate_combinations(domain_parts.domain)
 
-        # unique_domains = {''.join(comb) + '.' + '.'.join(domain_parts[1:]) for comb in product(*combinations)}
         unique_domains = {''.join(comb) for comb in product(*combinations)}
         if len(unique_domains) <= 1:
             return print(self.colored_text("No unicode combinations found for the current character set", 31))
@@ -84,13 +83,12 @@ class HomographAnalyzer:
             print(f"{self.colored_text('[*]', 32)} Domain: {self.colored_text(domain, 33)}")
             print(f"{self.colored_text('[*]', 32)} Homograph characters used: {self.colored_text(chars, 32)}")
 
-        # Table data collection
         table_data = []
         for index, main_domain_part in enumerate(unique_domains):
             full_domain = main_domain_part + '.' + domain_parts.suffix
             formatted_combinations = []
-            punycode_encoded_domain = main_domain_part.encode('idna').decode()
-            if main_domain_part == punycode_encoded_domain:
+            punycode_encoded_domain = main_domain_part.encode('idna').decode() + '.' + domain_parts.suffix
+            if full_domain == punycode_encoded_domain:
                 continue
 
             dns = self.check_domain_registration(full_domain)
@@ -106,7 +104,6 @@ class HomographAnalyzer:
                 print(full_domain)
                 continue
 
-            # Join formatted combinations into a single string
             combinations_str = "\n".join(formatted_combinations)
             table_data.append([
                 full_domain,
@@ -117,7 +114,6 @@ class HomographAnalyzer:
             ])
 
         if self.json_format:
-            # Use pandas to structure JSON output
             df = pd.DataFrame(table_data, columns=TABLE_HEADERS)
             json_output = df.to_dict(orient="records")
             print(json.dumps(json_output, indent=4))
@@ -136,7 +132,6 @@ def load_unicode_combinations_from_file(file_path):
         return None
 
 def main():
-    # Define argument parser
     parser = argparse.ArgumentParser(description="Homograph Domain Analyzer")
     parser.add_argument("domain", nargs="?", help="Domain to analyze")
     parser.add_argument("-f", "--file", help="File path with domains to analyze")
@@ -147,7 +142,6 @@ def main():
 
     args = parser.parse_args()
 
-    # Load unicode combinations
     unicode_combinations_file = Path(__file__).resolve().parent / "./unicode_combinations.json"
     unicode_combinations = load_unicode_combinations_from_file(unicode_combinations_file)
 
@@ -161,7 +155,6 @@ def main():
             unicode_combinations, show_domains_only, show_mixed_only, show_registered_only, json_format
         )
 
-        # Analyze a single domain or domains from a file
         if args.domain:
             homograph_analyzer.analyze_domain(args.domain)
         elif args.file:
