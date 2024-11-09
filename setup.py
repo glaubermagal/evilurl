@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='evilurl',
-    version='1.0.0',
+    version='2.0.0',
     packages=['src'],
     package_data={'src': ['unicode_combinations.json']},
     setup_requires=['wheel'],
@@ -13,7 +13,7 @@ setup(
             'evilurl=src.evilurl:main',
         ],
     },
-    author='Glauber',
+    author='Glauber Magal',
     author_email='apt65@proton.me',
     description='A tool for analyzing domains for the risk of IDN homograph attacks',
     long_description=open('README.md').read(),

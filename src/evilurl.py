@@ -87,8 +87,9 @@ class HomographAnalyzer:
         for index, main_domain_part in enumerate(unique_domains):
             full_domain = main_domain_part + '.' + domain_parts.suffix
             formatted_combinations = []
-            punycode_encoded_domain = main_domain_part.encode('idna').decode() + '.' + domain_parts.suffix
-            if full_domain == punycode_encoded_domain:
+            punycode_encoded_domain = main_domain_part.encode('idna').decode()
+            punycode_encoded_full_domain = punycode_encoded_domain + '.' + domain_parts.suffix
+            if full_domain == punycode_encoded_full_domain:
                 continue
 
             dns = self.check_domain_registration(full_domain)
@@ -107,9 +108,9 @@ class HomographAnalyzer:
             combinations_str = "\n".join(formatted_combinations)
             table_data.append([
                 full_domain,
-                punycode_encoded_domain,
+                punycode_encoded_full_domain,
                 dns if dns else 'UNSET',
-                "YES" if self.is_mixed_domain(punycode_encoded_domain, families) else "NO",
+                "YES" if self.is_mixed_domain(punycode_encoded_domain, families) else self.colored_text("NO", 33),
                 combinations_str
             ])
 

@@ -126,6 +126,14 @@ evilurl example.com --json
 evilurl example.com --mixed-only
 ```
 
+## Blocklist
+
+Feel free to contribute to the blocklist by identifying homograph domains used for malicious purposes or submit the homograph combinations of your own domain to protect it against future IDN homograph attacks. All domains added will be shared with the following repositories to help disseminate knowledge of these domains:
+
+- https://github.com/mypdns/matrix
+- https://github.com/mitchellkrogza/phishing
+
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
