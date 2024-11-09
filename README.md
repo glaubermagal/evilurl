@@ -15,25 +15,12 @@ evilurl git:(main) ✗ evilurl github.com
 [ by @glaubermagal – https://github.com/glaubermagal/evilurl]
 
 [*] Domain: github.com
-[*] Homograph characters used: ['Ꮟ', 'ɡ', 'һ', 'Ꮒ', 'ᖯ', 'ᴜ', 'т', 'і', 'ց', 'ƍ', 'τ', 'ս', 'Ь', 'ᴛ', 'ⅰ']
-
-1 -------------------------------
-homograph domain: ցiᴛһuᏏ.com
-punycode: xn--iu-4wc40fg77fqy2p.com
-DNS: UNSET
-MIXED: YES
-
-2 -------------------------------
-homograph domain: gⅰτᏂub.com
-punycode: xn--giub-rod2688w.com
-DNS: UNSET
-MIXED: YES
-
-3 -------------------------------
-homograph domain: ƍiтһuЬ.com
-punycode: xn--iu-cxa78yqb86b.com
-DNS: UNSET
-MIXED: YES
+[*] Homograph characters used: ['һ', 'ƍ', 'ᴛ', 'ս', 'і', 'ᖯ', 'ɡ']
++--------------------+-------------------+----------------+---------+---------------------------------+
+| homograph_domain   | punycode          | dns            | mixed   | combinations                    |
++====================+===================+================+=========+=================================+
+| ɡithub.com         | xn--ithub-qmc.com | 107.189.22.234 | YES     | ɡ → LATIN SMALL LETTER SCRIPT G |
++--------------------+-------------------+----------------+---------+---------------------------------+
 ```
 
 ## Overview
@@ -119,15 +106,33 @@ evilurl example.com
 evilurl -f domains.txt
 ```
 
-### Return only the homograph domains
+### Return only the domains
 ```bash
 evilurl example.com --domains-only
 ```
 
-### Output the DNS registration status
+### Return all domains, including the unregistered
 ```bash
-evilurl example.com --dns
+evilurl example.com --log-full
 ```
+
+### Return domains in JSON format
+```bash
+evilurl example.com --json
+```
+
+### Return only mixed charset domains
+```bash
+evilurl example.com --mixed-only
+```
+
+## Blocklist
+
+Feel free to contribute to the blocklist by identifying homograph domains used for malicious purposes or submit the homograph combinations of your own domain to protect it against future IDN homograph attacks. All domains added will be shared with the following repositories to help disseminate knowledge of these domains:
+
+- https://github.com/mypdns/matrix
+- https://github.com/mitchellkrogza/phishing
+
 
 ## License
 

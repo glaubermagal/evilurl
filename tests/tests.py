@@ -11,18 +11,16 @@ class TestHomographAnalyzer(unittest.TestCase):
     def setUp(self):
         unicode_combinations_file = Path(__file__).resolve().parent.parent / "./src/unicode_combinations.json"
         unicode_combinations = load_unicode_combinations_from_file(unicode_combinations_file)
-        self.analyzer = HomographAnalyzer(unicode_combinations, show_domains_only=False, check_dns=False)
+        self.analyzer = HomographAnalyzer(
+            # unicode_combinations, show_domains_only=False, check_dns=False
+            unicode_combinations, show_domains_only=False, show_mixed_only=False, show_registered_only=True, json_format=False
+        )
 
     @patch('socket.gethostbyname')
     def test_check_domain_registration(self, mock_gethostbyname):
         mock_gethostbyname.return_value = "127.0.0.1"
         result = self.analyzer.check_domain_registration("example.com")
         self.assertEqual(result, "127.0.0.1")
-
-    def test_extract_domain_parts(self):
-        url = "example.com"
-        result = self.analyzer.extract_domain_parts(url)
-        self.assertEqual(result, ['example', 'com'])
 
     def test_generate_combinations(self):
         result = self.analyzer.generate_combinations('x')
@@ -33,7 +31,7 @@ class TestHomographAnalyzer(unittest.TestCase):
     def test_analyze_domain(self, mock_print):
         domain = "m.com"
         self.analyzer.analyze_domain(domain)
-        mock_print.assert_called_with("No unicode combinations found for the current character set")
+        mock_print.assert_called_with("\x1b[31mNo unicode combinations found for the current character set\x1b[0m")
 
     def test_load_unicode_combinations_from_file(self):
         with patch('builtins.open', create=True) as mock_open:
