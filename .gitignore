@@ -1,6 +1,7 @@
 venv/
 evilurl.egg-info/
 dist/
+build/
 .eggs/
 __pycache__/
 *.pyc
