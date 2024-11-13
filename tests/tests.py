@@ -25,7 +25,7 @@ class TestHomographAnalyzer(unittest.TestCase):
     def test_generate_combinations(self):
         result = self.analyzer.generate_combinations('x')
         print("result", result)
-        self.assertEqual(result, ([['x', 'х']], ['х'], ['CYRILLIC']))
+        self.assertEqual(result, ([['x', 'х', 'ҳ']], ['х', 'ҳ'], ['CYRILLIC']))
 
     @patch('builtins.print')
     def test_analyze_domain(self, mock_print):
