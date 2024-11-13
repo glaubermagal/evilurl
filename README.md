@@ -85,7 +85,7 @@ In the output, "MIXED NO" indicates that the domain uses a single character fami
 
 ## Disclaimer
 
-This tool is intended for educational and research purposes only. The author is not responsible for any misuse of this tool.
+This tool is intended for ethical hacking purposes only.
 
 ## How It Works
 
