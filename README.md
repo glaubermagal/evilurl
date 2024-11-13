@@ -33,8 +33,8 @@ This project aims to raise awareness about the security risks of IDN homograph a
 
 ## Installation
 
-1. Clone the repository: git clone https://github.com/glaubermagal/evilurl.git
-1. Navigate to the project directory: cd evilurl
+1. Clone the repository: `git clone https://github.com/glaubermagal/evilurl.git`
+1. Navigate to the project directory: `cd evilurl`
 1. Create a virtual environment: python3 -m venv .venv
 1. Activate the virtual environment: `source .venv/bin/activate` (Linux/macOS) or `.venv\Scripts\activate` (Windows)
 1. Install dependencies: `pip install -r requirements.txt`
