@@ -427,12 +427,18 @@
         "similar": [
             {
                 "CYRILLIC": {
-                    "\u0445": "CYRILLIC SMALL LETTER KHA"
+                    "\u0445": "CYRILLIC SMALL LETTER HA",
+                    "\u04B3": "CYRILLIC SMALL LETTER KHA WITH DESCENDER"
                 }
             },
             {
                 "LATIN": {
                     "\u2179": "SMALL ROMAN NUMERAL TEN"
+                }
+            },
+            {
+                "CANADIAN": {
+                    "\u166E": "CANADIAN SYLLABICS FULL STOP"
                 }
             },
             {
