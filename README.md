@@ -25,37 +25,24 @@ evilurl git:(main) ✗ evilurl github.com
 
 ## Overview
 
-The Homograph URL Checker is a Python tool designed to analyze and identify potential Internationalized Domain Name (IDN) homograph attacks. Homograph attacks involve the use of characters that visually resemble each other but have different Unicode representations. This tool checks for variations of Latin characters that may be exploited for phishing or malicious purposes.
+EvilURL is a Python tool designed to analyze and identify potential Internationalized Domain Name (IDN) homograph attacks. These attacks exploit the visual similarity of characters from different Unicode scripts to create deceptive domain names for phishing and other malicious purposes. EvilURL helps assess the vulnerability of domains to these attacks.
 
 ## Motivation
 
-The primary motivation behind this project is to raise awareness about the potential security risks associated with IDN homograph attacks. By identifying visually similar characters, the tool aims to help users and security professionals study and understand the vulnerabilities in domain names, promoting better protection against phishing attempts and other cyber threats.
+This project aims to raise awareness about the security risks of IDN homograph attacks. By identifying visually similar characters, EvilURL helps users and security professionals understand these vulnerabilities and improve protection against phishing and other cyber threats.
 
 ## Installation
 
-```bash
-pip install evilurl
-```
-
-## Dependencies for Local Installation
-- Python 3
-
-Create a virtualenv
-
-```bash
-python -m venv venv
-source venv/bin/activate
-```
-
-Install the required library using:
-
-```bash
-pip install -r requirements.txt
-```
+1. Clone the repository: git clone https://github.com/glaubermagal/evilurl.git
+1. Navigate to the project directory: cd evilurl
+1. Create a virtual environment: python3 -m venv .venv
+1. Activate the virtual environment: `source .venv/bin/activate` (Linux/macOS) or `.venv\Scripts\activate` (Windows)
+1. Install dependencies: `pip install -r requirements.txt`
+1. Install EvilURL: `pip install .` (for local development) or `pip install evilurl` (once published on PyPI)
 
 ## Unit Tests
 
-To run the unit tests, use the following command:
+Run unit tests with:
 
 ```bash
 python -m unittest tests/tests.py
@@ -63,18 +50,27 @@ python -m unittest tests/tests.py
 
 ## Usage
 
-### Single Domain Analysis
-To check a single domain, run the tool with the following command:
+```
+evilurl [OPTIONS] DOMAIN|FILE
 
-```bash
-evilurl <domain>
+Options:
+  -f, --file FILE       Path to a file containing a list of domains.
+  --domains-only        Output only the generated homograph domains.
+  --log-full           Output all generated domains, including unregistered ones.
+  --json               Output results in JSON format.
+  --mixed-only         Output only mixed-script domains (those using characters from multiple scripts).
+  --help                Show this message and exit.
 ```
 
-### Batch Analysis from File
-To analyze multiple domains from a file, use the following command:
-
-```bash
-evilurl -f <file_path>
+**Examples:**
+```
+evilurl github.com                # Analyze github.com
+evilurl example.com --domains-only # Show only homograph domains for example.com
+evilurl example.org --log-full      # Show all generated domains for example.org, including unregistered
+evilurl -f domains.txt             # Analyze domains from a file
+evilurl example.net --json          # Output results in JSON format
+evilurl microsoft.com --mixed-only   # Show only mixed-script domains for microsoft.com
+evilurl apple.com                 # Analyze apple.com, showing DNS resolution results and character mapping
 ```
 
 ## Unicode Combinations
@@ -89,50 +85,34 @@ This tool is intended for ethical hacking purposes only.
 
 ## How It Works
 
-1. The tool extracts the domain parts from the provided URL.
-2. It generates combinations of visually similar characters for each Latin character in the domain.
-3. For each combination, it constructs a new domain and checks its registration status and DNS information.
-4. The tool then displays the homograph domains, their punycode representation, and DNS status.
+1. Extracting the domain parts.
+2. Generating variations using visually similar Unicode characters (defined in `unicode_combinations.json`).
+3. Constructing potential homograph domains and checking DNS records.
+4. Presenting results with punycode, DNS status, mixed-script indicators, and character mappings.
 
-## Example Usage
 
-### Single Domain Analysis
-```bash
-evilurl example.com
-```
+## Identifying and Blocking Malicious Domains
 
-### Batch Analysis from File
-```bash
-evilurl -f domains.txt
-```
+EvilURL helps you proactively identify potentially malicious domains that leverage IDN homograph attacks.  You can generate a list of possible homograph variations for a given domain using the `--domains-only` option:
 
-### Return only the domains
 ```bash
 evilurl example.com --domains-only
 ```
 
-### Return all domains, including the unregistered
-```bash
-evilurl example.com --log-full
+Carefully examine the output. Research each generated domain (e.g., using WHOIS lookups, DNS analysis) to determine if it's being used for malicious purposes (phishing, malware distribution, etc.).
+
+If you discover malicious homograph domains, you can compile them into a blocklist file. For example, to create a blocklist for `example.com`, redirect the output of evilurl to a file:
+
+```
+evilurl example.com --domains-only > blocklist/example.com
 ```
 
-### Return domains in JSON format
-```bash
-evilurl example.com --json
-```
+This will create (or overwrite) a file named `example.com` within the `blocklist` directory, containing the list of generated homograph domains. You can then use this blocklist with other security tools or systems to prevent access to these potentially harmful domains. (Note: You may need to create the `blocklist` directory if it doesn't already exist).
 
-### Return only mixed charset domains
-```bash
-evilurl example.com --mixed-only
-```
-
-## Blocklist
-
-Feel free to contribute to the blocklist by identifying homograph domains used for malicious purposes or submit the homograph combinations of your own domain to protect it against future IDN homograph attacks. All domains added will be shared with the following repositories to help disseminate knowledge of these domains:
+While EvilURL doesn't have built-in blocklist functionality, generating these lists can be a valuable first step in mitigating homograph attack risks. You can share identified malicious domains with other security researchers or contribute to community-maintained blocklists such as:
 
 - https://github.com/mypdns/matrix
 - https://github.com/mitchellkrogza/phishing
-
 
 ## License
 
