@@ -86,7 +86,6 @@ class HomographAnalyzer:
         table_data = []
         for index, main_domain_part in enumerate(unique_domains):
             full_domain = main_domain_part + '.' + domain_parts.suffix
-            formatted_combinations = []
             punycode_encoded_domain = main_domain_part.encode('idna').decode()
             punycode_encoded_full_domain = punycode_encoded_domain + '.' + domain_parts.suffix
             if full_domain == punycode_encoded_full_domain:
@@ -96,22 +95,25 @@ class HomographAnalyzer:
             if (not dns and self.show_registered_only) or (self.show_mixed_only and not self.is_mixed_domain(punycode_encoded_domain, families)):
                 continue
 
+            combinations_list = []
+            combinations_dict = {}
             for part in main_domain_part:
                 for char in part:
-                    if char in self.character_descriptions.keys():
-                        formatted_combinations.append(f"{char} → {self.character_descriptions.get(char)}")
+                    if char in self.character_descriptions:
+                        combinations_list.append(f"{char} → {self.character_descriptions[char]}")
+                        combinations_dict[char] = self.character_descriptions[char]
+
 
             if self.show_domains_only:
                 print(full_domain)
                 continue
 
-            combinations_str = "\n".join(formatted_combinations)
             table_data.append([
                 full_domain,
                 punycode_encoded_full_domain,
                 dns if dns else 'UNSET',
                 "YES" if self.is_mixed_domain(punycode_encoded_domain, families) else self.colored_text("NO", 33),
-                combinations_str
+                "\n".join(combinations_list) if not self.json_format else combinations_dict
             ])
 
         if self.json_format:
@@ -122,7 +124,6 @@ class HomographAnalyzer:
 
         if not self.show_domains_only:
             print(tabulate(table_data, TABLE_HEADERS, tablefmt="grid"))
-
 
 def load_unicode_combinations_from_file(file_path):
     try:
