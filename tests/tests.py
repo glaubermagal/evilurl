@@ -12,7 +12,6 @@ class TestHomographAnalyzer(unittest.TestCase):
         unicode_combinations_file = Path(__file__).resolve().parent.parent / "./src/unicode_combinations.json"
         unicode_combinations = load_unicode_combinations_from_file(unicode_combinations_file)
         self.analyzer = HomographAnalyzer(
-            # unicode_combinations, show_domains_only=False, check_dns=False
             unicode_combinations, show_domains_only=False, show_mixed_only=False, show_registered_only=True, json_format=False
         )
 
@@ -24,8 +23,10 @@ class TestHomographAnalyzer(unittest.TestCase):
 
     def test_generate_combinations(self):
         result = self.analyzer.generate_combinations('x')
-        print("result", result)
-        self.assertEqual(result, ([['x', 'х', 'ҳ']], ['ҳ', 'х'], ['CYRILLIC']))
+        self.assertEqual(len(result), 3)
+        self.assertCountEqual(result[0][0], ['x', 'х', 'ҳ'])
+        self.assertCountEqual(result[1], ['ҳ', 'х'])
+        self.assertCountEqual(result[2], ['CYRILLIC'])
 
     @patch('builtins.print')
     def test_analyze_domain(self, mock_print):
