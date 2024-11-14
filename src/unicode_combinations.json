@@ -458,7 +458,8 @@
             },
             {
                 "LATIN": {
-                    "\u028F": "LATIN LETTER SMALL CAPITAL Y"
+                    "\u028F": "LATIN LETTER SMALL CAPITAL Y",
+                    "\u1EFF": "LATIN SMALL LETTER Y WITH LOOP"
                 }
             },
             {
@@ -473,7 +474,8 @@
         "similar": [
             {
                 "LATIN": {
-                    "\u1D22": "LATIN LETTER SMALL CAPITAL Z"
+                    "\u1D22": "LATIN LETTER SMALL CAPITAL Z",
+                    "\u0290": "LATIN SMALL LETTER Z WITH RETROFLEX HOOK"
                 }
             }
         ]
