@@ -1,4 +1,4 @@
-# EvilURL Checker
+# EvilURL
 
 ```bash
 evilurl git:(main) ✗ evilurl github.com
