@@ -2,9 +2,7 @@ import pandas as pd
 import argparse
 from pathlib import Path
 import socket
-import sys
 from itertools import product
-from urllib.parse import urlsplit
 import json
 from tabulate import tabulate
 import tldextract
