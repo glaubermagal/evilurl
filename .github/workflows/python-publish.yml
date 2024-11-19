@@ -9,24 +9,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-    - uses: actions/setup-python@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
       with:
         python-version: '3.x'
 
-    - name: Install build dependencies
-      run: python -m pip install --upgrade pip setuptools wheel twine pex
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel twine
 
-    - name: Build executable with dependencies
-      run: pex . -o evilurl -r pandas -e evilurl:main
-
-    - name: Build the package (for normal installation method as well)
-      run: python setup.py sdist bdist_wheel
-
-    - name: Publish distributions
+    - name: Build and publish
       env:
         PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
       run: |
+        python setup.py sdist
         twine upload dist/* -u __token__ -p $PYPI_API_TOKEN --verbose
-        twine upload evilurl -u __token__ -p $PYPI_API_TOKEN --verbose # Uploads the standalone executable.
